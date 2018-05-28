@@ -9,11 +9,11 @@ export default class Article extends Component {
   }
 
   render() {
-    const { art } = this.props;
+    const { article } = this.props;
     const { isOpen } = this.state;
     return (
       <div>
-        <h3>{art.author}</h3>
+        <h3>{article.author}</h3>
         <button onClick={this.toggleOpen}>{isOpen ? "close" : "open"}</button>
         {this.getBody()}
       </div>
@@ -22,8 +22,8 @@ export default class Article extends Component {
 
   getBody() {
     if (!this.state.isOpen) return null;
-    const { art } = this.props;
-    return <section>{art.title}</section>;
+    const { article } = this.props;
+    return <section>{article.title}</section>;
   }
 
   toggleOpen = () => {
