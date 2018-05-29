@@ -26,7 +26,7 @@ export const articles = [
       {
         comment_id: "dd23",
         author_name: "Petya",
-        body: "My printer is on fire"
+        body: 123
       },
       {
         comment_id: "dd24",

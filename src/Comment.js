@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-export default class Comment extends Component {
+class Comment extends Component {
   state = {
     IsOpenComment: false
   };
@@ -49,3 +50,9 @@ export default class Comment extends Component {
 Comment.defaultProps = {
   comments: []
 };
+
+Comment.propTypes = {
+  comments: PropTypes.array.isRequired
+};
+
+export default Comment;
