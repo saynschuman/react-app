@@ -78,18 +78,6 @@ export const articles = [
     id: "5",
     title: "Don't use .bind() when passing props",
     author: "Dave Ceddia",
-    comments: [
-      {
-        comment_id: "dd23",
-        author_name: "Petya",
-        body: "My printer is on fire"
-      },
-      {
-        comment_id: "dd24",
-        author_name: "Vasya",
-        body: "My printer is on fire too!"
-      }
-    ],
     url: "https://daveceddia.com/avoid-bind-when-passing-props/"
   }
 ];

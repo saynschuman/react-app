@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import Comment from "./Comment";
+
 export default class Article extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false,
-      IsOpenComment: false
+      isOpen: false
     };
   }
 
@@ -18,8 +19,13 @@ export default class Article extends Component {
         <button onClick={this.toggleOpen}>{isOpen ? "close" : "open"}</button>
         <br />
         {this.getBody()}
-        {this.getButton()}
-        {this.getComments()}
+
+        {
+          <Comment
+            comments={article.comments}
+            isOpenArticle={this.state.isOpen}
+          />
+        }
       </div>
     );
   }
@@ -30,36 +36,9 @@ export default class Article extends Component {
     return <section>{article.title}</section>;
   }
 
-  getComments() {
-    if (!this.state.IsOpenComment) return null;
-    const { article } = this.props;
-    const articleComments = article.comments.map(comment => (
-      <li className="comments" key={comment.comment_id}>
-        {comment.body}
-      </li>
-    ));
-    return <section>{articleComments}</section>;
-  }
-
-  getButton() {
-    if (!this.state.isOpen) return null;
-    const { IsOpenComment } = this.state;
-    return (
-      <button onClick={this.toggleOpenComment}>
-        {IsOpenComment ? "Закрыть комментарии" : "Открыть комментарии"}
-      </button>
-    );
-  }
-
   toggleOpen = () => {
     this.setState({
       isOpen: !this.state.isOpen
-    });
-  };
-
-  toggleOpenComment = () => {
-    this.setState({
-      IsOpenComment: !this.state.IsOpenComment
     });
   };
 }
