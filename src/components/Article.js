@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import toggleButton from "../decorators/toggleButton";
 import Comment from "./Comment";
 
-export default class Article extends Component {
+class Article extends Component {
   static proptypes = {
     article: PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -49,3 +50,5 @@ export default class Article extends Component {
     });
   };
 }
+
+export default toggleButton(Article);
