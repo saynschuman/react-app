@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 class Comment extends Component {
   state = {
@@ -49,10 +48,6 @@ class Comment extends Component {
 
 Comment.defaultProps = {
   comments: []
-};
-
-Comment.propTypes = {
-  comments: PropTypes.array.isRequired
 };
 
 export default Comment;

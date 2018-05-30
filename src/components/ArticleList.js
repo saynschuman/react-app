@@ -1,11 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
 import Article from "./Article";
+// import Accordeon from "./../decorators/Accordeon";
 
-export default function ArticleList({ articles }) {
-  const articleElements = articles.map(article => (
-    <li key={article.id}>
-      <Article article={article} />
-    </li>
-  ));
-  return <ul>{articleElements}</ul>;
+class ArticleList extends Component {
+  state = {
+    openArtId: null
+  };
+  render() {
+    const { articles } = this.props;
+    const articleElements = articles.map(article => (
+      <li key={article.id}>
+        <Article
+          isOpen={article.id === this.state.openArtId}
+          article={article}
+          getArtId={this.getArtId}
+        />
+      </li>
+    ));
+    return <ul>{articleElements}</ul>;
+  }
+
+  getArtId = openArtId => ev => {
+    this.setState(prevState => ({
+      openArtId: openArtId === prevState.openArtId ? null : openArtId
+    }));
+  };
 }
+
+export default ArticleList;
