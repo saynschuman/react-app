@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import CommentForm from "./CommentForm"
 
 class Comment extends Component {
   state = {
@@ -25,7 +26,8 @@ class Comment extends Component {
         {comment.body}
       </li>
     ));
-    return <section>{articleComments}</section>;
+    return(<div><section>{articleComments}</section>
+      <CommentForm /></div>)
   }
 
   getButton() {

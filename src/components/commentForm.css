@@ -1,0 +1,11 @@
+input:focus {
+  outline: none;
+}
+
+input.false {
+  border: solid 1px red
+}
+
+input.true {
+  border: solid 1px black
+}
