@@ -7,7 +7,7 @@ class UserForm extends Component {
   render() {
     return (
       <div>
-        Name:{" "}
+        <div>Name:{this.state.username}</div>
         <input
           type="text"
           value={this.state.username}

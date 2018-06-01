@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Comment from "./Comment";
+import propTypes from "prop-types";
 
 class Article extends Component {
   render() {
@@ -30,5 +31,12 @@ class Article extends Component {
     return <section>{article.title}</section>;
   }
 }
+
+Article.propTypes = {
+  article: propTypes.shape({
+    author: propTypes.string.isRequired,
+    title: propTypes.string.isRequired
+  }).isRequired
+};
 
 export default Article;

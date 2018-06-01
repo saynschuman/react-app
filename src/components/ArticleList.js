@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Article from "./Article";
+import PropTypes from "prop-types";
 // import Accordeon from "./../decorators/Accordeon";
 
 class ArticleList extends Component {
@@ -26,5 +27,9 @@ class ArticleList extends Component {
     }));
   };
 }
+
+ArticleList.propTypes = {
+  articles: PropTypes.array
+};
 
 export default ArticleList;
