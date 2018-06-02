@@ -1,16 +1,34 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./App.css";
-// import UserForm from "./components/UserForm";
-import ArticleList from "./components/ArticleList";
-// import Calendar from "./components/Calendar";
-import { articles } from "./articles.js";
+import {createStore} from 'redux'
 
-ReactDOM.render(
-  <ArticleList articles={articles} />,
-  document.getElementById("root")
-);
+function playlist (state = [], action){
+    if (action.type === 'ADD') {
+        return [
+            ...state,
+            action.payload
+        ]
+    }
+    return state
+}
 
-// ReactDOM.render(<Calendar />, document.getElementById("root"));
+const store = createStore(playlist)
 
-// ReactDOM.render(<App />, document.getElementById("root"));
+console.log(store.getState())
+
+store.subscribe(() => {
+    console.log('subsucribe', store.getState())
+})
+
+store.dispatch({
+    type: 'ADD',
+    payload: 'Hey'
+});
+
+store.dispatch({
+    type: 'ADD',
+    payload: 'New'
+});
+
+store.dispatch({
+    type: 'ADD',
+    payload: 'New2'
+});
