@@ -16,6 +16,9 @@ class Article extends Component {
             {this.props.isOpen ? "close" : "open"}
           </button>
         }
+        {
+            <button onClick={this.handleDelete}>delete</button>
+        }
         <br />
         {this.getBody()}
 
@@ -27,6 +30,9 @@ class Article extends Component {
         }
       </div>
     );
+  }
+  handleDelete = () => {
+    console.log('deleting')
   }
   getBody() {
     if (!this.props.isOpen) return null;

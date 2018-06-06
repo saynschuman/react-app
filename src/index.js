@@ -1,34 +1,9 @@
-import {createStore} from 'redux'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Root from './components/Root'
 
-function playlist (state = [], action){
-    if (action.type === 'ADD') {
-        return [
-            ...state,
-            action.payload
-        ]
-    }
-    return state
-}
 
-const store = createStore(playlist)
-
-console.log(store.getState())
-
-store.subscribe(() => {
-    console.log('subsucribe', store.getState())
-})
-
-store.dispatch({
-    type: 'ADD',
-    payload: 'Hey'
-});
-
-store.dispatch({
-    type: 'ADD',
-    payload: 'New'
-});
-
-store.dispatch({
-    type: 'ADD',
-    payload: 'New2'
-});
+ReactDOM.render(
+    <Root />,
+    document.getElementById('root')
+  );

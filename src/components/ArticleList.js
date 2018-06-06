@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Article from "./Article";
 import PropTypes from "prop-types";
-// import Accordeon from "./../decorators/Accordeon";
+import {connect} from 'react-redux'
 
 class ArticleList extends Component {
   state = {
@@ -32,4 +32,6 @@ ArticleList.propTypes = {
   articles: PropTypes.array
 };
 
-export default ArticleList;
+export default connect(state => ({
+    articles: state.articles
+}))(ArticleList);
