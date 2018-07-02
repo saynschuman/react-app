@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import{connect} from 'react-redux'
 import Comment from "./Comment";
 import propTypes from "prop-types";
+import {deleteArticle} from "../AC";
 
 class Article extends Component {
   shouldComponentUpdate(nextProps, nextState) {
@@ -32,7 +34,9 @@ class Article extends Component {
     );
   }
   handleDelete = () => {
-    console.log('deleting')
+    const {deleteArticle, article} = this.props
+      deleteArticle(article.id)
+      console.log('deleting')
   }
   getBody() {
     if (!this.props.isOpen) return null;
@@ -48,4 +52,4 @@ Article.propTypes = {
   }).isRequired
 };
 
-export default Article;
+export default connect(null, {deleteArticle})(Article);

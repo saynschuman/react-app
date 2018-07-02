@@ -1,13 +1,9 @@
-import {createStore} from 'redux'
-// import combineReducers from '../reducer/index.js'
-import {articles} from '../articles'
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import reducer from '../reducer'
 
-const store = createStore(artRender)
-
-function artRender() {
-    return {articles: articles}
-}
-
-window.store = store
+const store = createStore(reducer, composeWithDevTools(
+    applyMiddleware(),
+));
 
 export default store
