@@ -3,6 +3,7 @@ export const articles = [
     id: "1",
     title: "How to handle state in React. The missing FAQ.",
     author: "Osmel Mora",
+    date: "2018-09-01T04:50:21",
     comments: [
       {
         comment_id: "dd21",
@@ -22,6 +23,7 @@ export const articles = [
     id: "2",
     title: "You might not need React Router",
     author: "Konstantin Tarkus",
+    date: "2018-09-02T04:50:21",
     comments: [
       {
         comment_id: "dd23",
@@ -41,6 +43,7 @@ export const articles = [
     id: "3",
     title: "Mixins Considered Harmful",
     author: "Dan Abramov",
+    date: "2018-09-03T04:50:21",
     comments: [
       {
         comment_id: "dd23",
@@ -60,6 +63,7 @@ export const articles = [
     id: "4",
     title: "React Design Principles",
     author: "Dan Abramov",
+    date: "2018-09-04T04:50:21",
     comments: [
       {
         comment_id: "dd23",
@@ -78,6 +82,7 @@ export const articles = [
     id: "5",
     title: "Don't use .bind() when passing props",
     author: "Dave Ceddia",
-    url: "https://daveceddia.com/avoid-bind-when-passing-props/"
+    url: "https://daveceddia.com/avoid-bind-when-passing-props/",
+    date: "2018-09-05T04:50:21",
   }
 ];

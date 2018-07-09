@@ -32,6 +32,14 @@ ArticleList.propTypes = {
   articles: PropTypes.array
 };
 
-export default connect(state => ({
-    articles: state.articles
-}))(ArticleList);
+function mapSTP(state) {
+  const {to, from} = state.filter
+
+    const test = state.articles.filter(article =>
+        Date.parse(from) < Date.parse(article.date) && Date.parse(article.date) < Date.parse(to))
+    return {
+      articles: from ? test : state.articles
+    }
+}
+
+export default connect(mapSTP)(ArticleList);

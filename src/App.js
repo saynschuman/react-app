@@ -3,6 +3,7 @@ import "./App.css";
 import ArticleList from './components/ArticleList'
 import Select from 'react-select'
 import {connect} from 'react-redux'
+import DayPick from './components/DayPick'
 
 class App extends Component {
 
@@ -17,8 +18,11 @@ class App extends Component {
     }))
     return (
         <div>
+
           <Select options = {options} isMulti />
+          <DayPick />
           <ArticleList />
+
         </div>
     );
   }

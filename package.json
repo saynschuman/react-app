@@ -3,20 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "prop-types": "^15.6.1",
-    "react": "^16.3.2",
-    "react-day-picker": "^7.1.9",
+    "bootstrap-daterangepicker": "^3.0.3",
+    "jquery": "^3.3.1",
+    "moment": "^2.22.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-app-rewire-hot-loader": "^1.0.1",
+    "react-app-rewired": "^1.5.2",
+    "react-bootstrap-daterangepicker": "^4.1.0",
+    "react-date-range": "^1.0.0-beta",
+    "react-day-picker": "^7.1.10",
     "react-dom": "^16.3.2",
+    "react-hot-loader": "^4.3.3",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "react-select": "^2.0.0-beta.6",
     "redux": "^4.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
+    "eject": "react-app-rewired eject"
   },
   "devDependencies": {
     "esformatter-jsx": "^8.0.1",

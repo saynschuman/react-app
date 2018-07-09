@@ -6,3 +6,4 @@ ReactDOM.render(
     <Root />,
     document.getElementById('root')
   );
+

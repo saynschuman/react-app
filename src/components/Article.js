@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import{connect} from 'react-redux'
 import Comment from "./Comment";
 import propTypes from "prop-types";
-import {deleteArticle} from "../AC";
+import {deleteArticle} from "../actions";
 
 class Article extends Component {
   shouldComponentUpdate(nextProps, nextState) {
