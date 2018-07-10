@@ -35,6 +35,8 @@ ArticleList.propTypes = {
 function mapSTP(state) {
   const { to, from, selected} = state.filter
   const { articles } = state
+
+  // // Variant 1
   // const newArr = []
   // if (selected.length === 0) {
   //   console.log('empty')
@@ -58,6 +60,7 @@ function mapSTP(state) {
   //   }
   // }
 
+  // Variant 2
   const selectedId = selected.map(item => item.value)
 
   const result = articles.filter(article => {
@@ -71,6 +74,21 @@ function mapSTP(state) {
   return {
     articles: result,
   }
+
+  // // Variant 3
+  // const selectedId = selected.map(item => item.value)
+  // let filtered = null
+  // if (selectedId.length >= 1) {
+  //   filtered = articles.filter(article => selectedId.includes(article.id))
+  // }
+  // if (from ) {
+  //   filtered = articles.filter(article => {
+  //     const date = Date.parse(article.date)
+  //     return from <= date && date <= to
+  //   })
+  // }
+  // return { articles: filtered ? filtered : state.articles }
+
 }
 
 export default connect(mapSTP)(ArticleList)
