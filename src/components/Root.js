@@ -6,7 +6,7 @@ import { hot } from 'react-hot-loader'
 
 function Root() {
     return (
-        <Provider store = {store}>
+        <Provider store = {store()}>
             <App/>
         </Provider>
     )

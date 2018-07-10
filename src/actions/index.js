@@ -1,4 +1,4 @@
-import {DELETE_ARTICLE, SAVE_DAYS} from "../constants";
+import {DELETE_ARTICLE, SAVE_DAYS, SELECT_TO_STATE} from "../constants";
 
 export function deleteArticle(id) {
     return {
@@ -17,5 +17,12 @@ export function saveDaysRange(days) {
 export function resetDaysRange() {
     return {
         type: 'RESET'
+    }
+}
+
+export function selectToState(selected) {
+    return {
+        type: SELECT_TO_STATE,
+        payload: {selected}
     }
 }

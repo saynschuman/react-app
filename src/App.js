@@ -1,38 +1,35 @@
-import React, { Component } from "react";
-import "./App.css";
+import React, { Component } from 'react'
+import './App.css'
 import ArticleList from './components/ArticleList'
-import Select from 'react-select'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import DayPick from './components/DayPick'
+import { selectToState } from './actions'
+import FilterSelect from './components/FilterSelect'
 
 class App extends Component {
-
-  state = {
-    selected: null
-  }
-
   render() {
-    const options = this.props.articles.map(article => ({
-        label: article.author,
-        value: article.id
-    }))
     return (
-        <div>
+      <div>
+        <FilterSelect
+          value={this.props.selected}
+          selectToState={this.props.selectToState}
+          articles={this.props.articles}
+        />
+        <DayPick />
+        <ArticleList />
+      </div>
+    )
+  }
+}
 
-          <Select options = {options} isMulti />
-          <DayPick />
-          <ArticleList />
-
-        </div>
-    );
+function mapSTP(state) {
+  return {
+    articles: state.articles,
+    selected: state.filter.selected,
   }
 }
 
 export default connect(
-    state => {
-
-      return {
-          articles: state.articles
-      }
-    }
-)(App);
+  mapSTP,
+  { selectToState },
+)(App)

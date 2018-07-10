@@ -1,2 +1,3 @@
 export const DELETE_ARTICLE = 'DELETE_ARTICLE'
 export const SAVE_DAYS = 'SAVE_DAYS'
+export const SELECT_TO_STATE = 'SELECT_TO_STATE'
