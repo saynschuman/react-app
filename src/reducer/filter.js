@@ -15,8 +15,6 @@ export default function filters(state = defaultState, action) {
       return defaultState
     case SELECT_TO_STATE:
       return { ...state, selected: payload.selected }
-    case 'TEST':
-      return {...state, name: 'VASYA'}
     default:
       return state
   }
