@@ -24,7 +24,7 @@ class Article extends Component {
 
         {
           <Comment
-            comments={article.comments}
+            comments = {article.comments}
             isOpenArticle={this.props.isOpen}
           />
         }

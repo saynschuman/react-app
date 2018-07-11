@@ -1,4 +1,4 @@
-import {articles} from '../articles'
+import {normalizedArticles as articles} from '../normalizedArticles'
 import {DELETE_ARTICLE} from "../constants";
 
 export default function (articleState = articles, action) {

@@ -1,10 +1,11 @@
-import React, { Component } from "react";
-import CommentForm from "./CommentForm"
+import React, { Component } from 'react'
+import CommentForm from './CommentForm'
+import { connect } from 'react-redux'
 
 class Comment extends Component {
   state = {
-    IsOpenComment: false
-  };
+    IsOpenComment: false,
+  }
 
   render() {
     return (
@@ -12,44 +13,54 @@ class Comment extends Component {
         {this.getButton()}
         {this.getComments()}
       </div>
-    );
+    )
   }
 
   getComments() {
-    if (!this.state.IsOpenComment) return null;
-    const { comments } = this.props;
+    if (!this.state.IsOpenComment) return null
+    const { comments } = this.props
     if (!this.props.comments.length) {
-      return <div>no comments!</div>;
+      return <div>no comments!</div>
     }
     const articleComments = comments.map(comment => (
       <li className="comments" key={comment.comment_id}>
         {comment.body}
       </li>
-    ));
-    return(<div><section>{articleComments}</section>
-      <CommentForm /></div>)
+    ))
+    return (
+      <div>
+        <section>{articleComments}</section>
+        <CommentForm />
+      </div>
+    )
   }
 
   getButton() {
-    const { isOpenArticle } = this.props;
-    const { IsOpenComment } = this.state;
+    const { isOpenArticle } = this.props
+    const { IsOpenComment } = this.state
     if (isOpenArticle)
       return (
         <button onClick={this.toggleOpenComment}>
-          {IsOpenComment ? "Закрыть комментарии" : "Открыть комментарии"}
+          {IsOpenComment ? 'Закрыть комментарии' : 'Открыть комментарии'}
         </button>
-      );
+      )
   }
 
   toggleOpenComment = () => {
     this.setState({
-      IsOpenComment: !this.state.IsOpenComment
-    });
-  };
+      IsOpenComment: !this.state.IsOpenComment,
+    })
+  }
 }
 
 Comment.defaultProps = {
-  comments: []
-};
+  comments: [],
+}
 
-export default Comment;
+export default connect((state, props) => {
+  const { comments } = state
+
+  return {
+    comments: props.comments ? props.comments.map(id => comments[id]) : []
+  }
+})(Comment)
