@@ -12,7 +12,7 @@ function ArrayToObj(array) {
 
 export default function (commentsState = ArrayToObj(defaultComments), action) {
 
-  const {type, payload} = action
+  const {type} = action
 
   switch (type) {
   }

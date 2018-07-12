@@ -4,8 +4,9 @@
 
 .comments {
   list-style: none;
-  padding-left: 20px;
-  opacity: .4;
+  padding-left: 10px;
+  opacity: .8;
+  margin-bottom: 15px;
 }
 
 .App-logo {

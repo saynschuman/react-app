@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import DayPick from './components/DayPick'
 import { selectToState } from './actions'
 import FilterSelect from './components/FilterSelect'
-import { hot } from "react-hot-loader"
+import { hot } from 'react-hot-loader'
 import Counter from './components/counter'
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div>
         <Counter />
-        <br/>
+        <br />
         <FilterSelect
           value={this.props.selected}
           selectToState={this.props.selectToState}
@@ -33,7 +33,9 @@ function mapSTP(state) {
   }
 }
 
-export default hot(module)(connect(
-  mapSTP,
-  { selectToState },
-)(App))
+export default hot(module)(
+  connect(
+    mapSTP,
+    { selectToState },
+  )(App),
+)

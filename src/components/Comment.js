@@ -11,6 +11,7 @@ class Comment extends Component {
     return (
       <div>
         {this.getButton()}
+        <br/>
         {this.getComments()}
       </div>
     )
@@ -19,12 +20,14 @@ class Comment extends Component {
   getComments() {
     if (!this.state.IsOpenComment) return null
     const { comments } = this.props
+    // console.log(this.props)
+    // debugger
     if (!this.props.comments.length) {
       return <div>no comments!</div>
     }
     const articleComments = comments.map(comment => (
-      <li className="comments" key={comment.comment_id}>
-        {comment.body}
+      <li className="comments" key={comment.id}>
+        <b>{comment.user}</b> <br/> <i>{comment.text}</i>
       </li>
     ))
     return (
@@ -40,9 +43,12 @@ class Comment extends Component {
     const { IsOpenComment } = this.state
     if (isOpenArticle)
       return (
-        <button onClick={this.toggleOpenComment}>
-          {IsOpenComment ? 'Закрыть комментарии' : 'Открыть комментарии'}
-        </button>
+        <div>
+          <button onClick={this.toggleOpenComment}>
+            {IsOpenComment ? 'Закрыть комментарии' : 'Открыть комментарии'}
+          </button>
+          <span> ({this.props.comments.length}) </span>
+        </div>
       )
   }
 
@@ -58,9 +64,9 @@ Comment.defaultProps = {
 }
 
 export default connect((state, props) => {
-  const { comments } = state
 
   return {
-    comments: props.comments ? props.comments.map(id => comments[id]) : []
+    // comments: props.comments ? props.comments.map(id => comments[id]) : [],
+    comments: props.comments
   }
 })(Comment)
