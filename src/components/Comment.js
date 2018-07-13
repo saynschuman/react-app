@@ -24,6 +24,7 @@ class Comment extends Component {
 
 export default connect((state, props)=> {
   return {
-    fullComments: state.comments[props.id]
+     fullComments: state.comments[props.id]
+     // fullComments: commentSelectorFactory(state, props)
   }
 })(Comment)

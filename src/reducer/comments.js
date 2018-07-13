@@ -4,6 +4,7 @@ export default function(commentsState = commentsGenerator(), action) {
   const { type } = action
 
   switch (type) {
+    default:
+      return commentsState
   }
-  return commentsState
 }

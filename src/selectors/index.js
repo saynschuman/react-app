@@ -23,5 +23,6 @@ export const filtratedArticlesSelector = createSelector(
 )
 
 export const commentSelectorFactory = () => createSelector(commentsGetter, idGetter, (comments, id) => {
+  console.log(id)
   return comments[id]
 })

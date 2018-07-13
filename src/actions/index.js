@@ -1,4 +1,4 @@
-import { DECREMENT, DELETE_ARTICLE, INCREMENT, SAVE_DAYS, SELECT_TO_STATE } from '../constants'
+import { DECREMENT, DELETE_ARTICLE, INCREMENT, SAVE_DAYS, SELECT_TO_STATE, ADD_COMMENT } from '../constants'
 
 export function deleteArticle(id) {
   return {
@@ -36,5 +36,12 @@ export function increment() {
 export function decrement() {
   return {
     type: DECREMENT,
+  }
+}
+
+export function addComment(comment) {
+  return {
+    type: ADD_COMMENT,
+    payload: { comment }
   }
 }

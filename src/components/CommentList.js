@@ -54,7 +54,7 @@ class CommentList extends Component {
 
   toggleOpenComment = () => {
     this.setState({
-      IsOpenComment: !this.state.IsOpenComment,
+      IsOpenComment: !this.state.IsOpenComment  ,
     })
   }
 }
