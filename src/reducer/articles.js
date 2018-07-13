@@ -1,11 +1,16 @@
-import {postData as articles} from '../postData'
-import {DELETE_ARTICLE} from "../constants";
+import { DELETE_ARTICLE } from '../constants'
+import { articlesGenerator } from '../data/dataGenerator'
 
-export default function (articleState = articles, action) {
-    const {type, payload} = action
+const articleList = articlesGenerator()
+const normalizedArticles = Object.keys(articleList).map(objectId => articleList[objectId])
 
-    switch (type) {
-        case DELETE_ARTICLE: return articleState.filter(article => article.id !==payload.id)
-        default: return articleState
-    }
+export default function(articleState = normalizedArticles, action) {
+  const { type, payload } = action
+
+  switch (type) {
+    case DELETE_ARTICLE:
+      return articleState.filter(article => article.id !== payload.id)
+    default:
+      return articleState
+  }
 }

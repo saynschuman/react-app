@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Comment from './Comment'
 import propTypes from 'prop-types'
 import { deleteArticle } from '../actions'
+import CommentList from './CommentList'
 
 class Article extends Component {
   shouldComponentUpdate(nextProps, nextState) {
@@ -23,7 +23,8 @@ class Article extends Component {
         <br />
         {this.getBody()}
 
-        {<Comment comments={article.comments} isOpenArticle={this.props.isOpen} />}
+        {<CommentList comments={article.comments} isOpenArticle={this.props.isOpen} />}
+
       </div>
     )
   }
