@@ -32,7 +32,10 @@ class App extends Component {
       </div>
     )
   }
+
 }
+
+
 
 function mapSTP(state) {
   return {

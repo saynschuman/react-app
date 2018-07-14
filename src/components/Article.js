@@ -23,7 +23,7 @@ class Article extends Component {
         <br />
         {this.getBody()}
 
-        {<CommentList comments={article.comments} isOpenArticle={this.props.isOpen} />}
+        {<CommentList id={article.id} comments={article.comments} isOpenArticle={this.props.isOpen} />}
 
       </div>
     )

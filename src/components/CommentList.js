@@ -29,7 +29,7 @@ class CommentList extends Component {
           <ul className="nop">
             {comments.map(id => <li className="comments" key={id}><Comment id = {id}/></li>)}
           </ul>
-          <CommentForm />
+          <CommentForm id={this.props.id} />
         </div>
       )
   }

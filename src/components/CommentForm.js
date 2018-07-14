@@ -1,11 +1,13 @@
-import React, { Component } from "react";
-import "./commentForm.css";
+import React, { Component } from 'react'
+import './commentForm.css'
+import { addComment } from '../actions'
+import { connect } from 'react-redux'
 
-export default class CommentForm extends Component {
+class CommentForm extends Component {
   state = {
-    comment: "",
-    textValid: true
-  };
+    comment: '',
+    textValid: true,
+  }
   render() {
     return (
       <div>
@@ -15,15 +17,33 @@ export default class CommentForm extends Component {
           value={this.state.comment}
           onChange={this.handleCommentChange}
         />
-        <button>Add Comment</button>
+        <button onClick={this.handleAddComment}>Add Comment</button>
       </div>
-    );
+    )
   }
+
+  handleAddComment = () => {
+    const commentText = { text: this.state.comment, articleId: this.props.id }
+    this.props.addComment(commentText)
+    this.setState({
+      comment: ''
+    })
+
+  }
+
+
+
   handleCommentChange = e => {
-    const value = e.target.value;
+    const value = e.target.value
     this.setState({
       comment: value,
-      textValid: value.length > 5
-    });
-  };
+      textValid: value.length > 5,
+    })
+  }
 }
+
+export default connect(state => {
+  return {
+    comments: state.comments
+  }
+}, {addComment})(CommentForm)

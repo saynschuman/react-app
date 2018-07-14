@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect'
 
 const filtersGetter = state => state.filter
-const articlesGetter = state => state.articles
+const articlesGetter = state => Object.keys(state.articles).map(objectId => state.articles[objectId])
 const commentsGetter = state => state.comments
-const idGetter = props => props.id
+const idGetter = (state, props) => props.id
 
 export const filtratedArticlesSelector = createSelector(
   articlesGetter,
@@ -23,6 +23,5 @@ export const filtratedArticlesSelector = createSelector(
 )
 
 export const commentSelectorFactory = () => createSelector(commentsGetter, idGetter, (comments, id) => {
-  console.log(id)
   return comments[id]
 })
