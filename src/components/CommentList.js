@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Comment from './Comment'
 import CommentForm from './CommentForm'
+import { connect } from 'react-redux'
 
 class CommentList extends Component {
   state = {
@@ -16,6 +17,7 @@ class CommentList extends Component {
       </div>
     )
   }
+
 
   getComments() {
     const {comments} = this.props
@@ -57,6 +59,15 @@ class CommentList extends Component {
       IsOpenComment: !this.state.IsOpenComment  ,
     })
   }
+
 }
 
-export default CommentList
+// mapStateToProps = (state, props) => {
+//   return {
+//     comments: state.comments
+//   }
+// }
+
+export default connect(
+  null,
+)(CommentList)

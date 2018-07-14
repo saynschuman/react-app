@@ -17,5 +17,5 @@ export default store => next => action => {
       next(action)
   }
 
-  console.log(action)
+  // console.log(action)
 }

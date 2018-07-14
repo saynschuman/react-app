@@ -11,27 +11,28 @@ class CommentForm extends Component {
   render() {
     return (
       <div>
-        <input
-          className={`${this.state.textValid}`}
-          type="text"
-          value={this.state.comment}
-          onChange={this.handleCommentChange}
-        />
-        <button onClick={this.handleAddComment}>Add Comment</button>
+        <form onSubmit={this.handleAddComment}>
+          <input
+            className={`${this.state.textValid}`}
+            type="text"
+            value={this.state.comment}
+            onChange={this.handleCommentChange}
+          />
+          <input type="submit" value="Add" />
+          {/*<button>Add Comment</button>*/}
+        </form>
       </div>
     )
   }
 
-  handleAddComment = () => {
+  handleAddComment = ev => {
+    ev.preventDefault()
     const commentText = { text: this.state.comment, articleId: this.props.id }
     this.props.addComment(commentText)
     this.setState({
-      comment: ''
+      comment: '',
     })
-
   }
-
-
 
   handleCommentChange = e => {
     const value = e.target.value
@@ -40,10 +41,17 @@ class CommentForm extends Component {
       textValid: value.length > 5,
     })
   }
-}
 
-export default connect(state => {
-  return {
-    comments: state.comments
-  }
-}, {addComment})(CommentForm)
+}
+//
+// export default connect(
+//   null,
+//   (dispatch, ownProps) => ({
+//     addComment: comment => dispatch(addComment(comment, ownProps.articleId)),
+//   }),
+// )(CommentForm)
+
+export default connect(
+  null,
+  { addComment },
+)(CommentForm)
