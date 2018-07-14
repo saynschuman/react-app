@@ -5,9 +5,9 @@ import { deleteArticle } from '../actions'
 import CommentList from './CommentList'
 
 class Article extends Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.isOpen !== this.props.isOpen
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return nextProps.isOpen !== this.props.isOpen
+  // }
   render() {
     const { article } = this.props
 
