@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Comment from './Comment'
 import CommentForm from './CommentForm'
-import { connect } from 'react-redux'
 
 class CommentList extends Component {
   state = {
@@ -68,6 +67,4 @@ class CommentList extends Component {
 //   }
 // }
 
-export default connect(
-  null,
-)(CommentList)
+export default CommentList

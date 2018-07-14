@@ -32,6 +32,7 @@ class CommentForm extends Component {
     this.setState({
       comment: '',
     })
+
   }
 
   handleCommentChange = e => {

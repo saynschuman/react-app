@@ -11,16 +11,13 @@ export default function(articleState = articleList, action) {
       return articleState.filter(article => article.id !== payload.id)
     case ADD_COMMENT:
       const article = articleState[payload.comment.articleId]
-      // const temp = { ...articleState }
-      // temp[payload.comment.articleId].comments = temp[payload.comment.articleId].comments.concat(
-      //   payload.id,
-      // )
+
       return {
         ...articleState,
-        [payload.comment.articleId] : {
+        [payload.comment.articleId]: {
           ...article,
-          comments: (article.comments || []).concat(payload.id)
-        }
+          comments: (article.comments || []).concat(payload.id),
+        },
       }
     default:
       return articleState

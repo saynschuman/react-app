@@ -13,4 +13,3 @@ export default function(commentsState = normalizedData.entities.comments, action
       return commentsState
   }
 }
-

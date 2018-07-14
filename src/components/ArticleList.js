@@ -18,6 +18,7 @@ class ArticleList extends Component {
           isOpen={article.id === this.state.openArtId}
           article={article}
           getArtId={this.getArtId}
+          comments={article.comments}
         />
       </li>
     ))
@@ -39,4 +40,4 @@ export default connect(state => {
   return {
     articles: filtratedArticlesSelector(state),
   }
-})(ArticleList)
+}, null, null, {pure:false})(ArticleList)

@@ -10,6 +10,7 @@ class Article extends Component {
   }
   render() {
     const { article } = this.props
+
     return (
       <div>
         <h3>{article.title}</h3>
@@ -23,8 +24,13 @@ class Article extends Component {
         <br />
         {this.getBody()}
 
-        {<CommentList id={article.id} comments={article.comments} isOpenArticle={this.props.isOpen} />}
-
+        {
+          <CommentList
+            id={article.id}
+            comments={article.comments}
+            isOpenArticle={this.props.isOpen}
+          />
+        }
       </div>
     )
   }
