@@ -1,21 +1,19 @@
-import { ADD_COMMENT, DELETE_ARTICLE } from '../constants'
-import { normalizedData } from '../data/dataGenerator'
+import { ADD_COMMENT, DELETE_ARTICLE, LOAD_ALL_ARTICLES } from '../constants'
+// import { normalizedData } from '../data/dataGenerator'
+import arrToMap from '../helpers/arrToMap'
 // import {Map} from 'immutable'
 
-const articleList = normalizedData.entities.articles
+// const articleList = normalizedData.entities.articles
 // const articleList = new Map({})
 
-export default function(articleState = articleList, action) {
-  const { type, payload } = action
+export default function(articleState = {}, action) {
+  const { type, payload, response } = action
 
   switch (type) {
     case DELETE_ARTICLE:
       const articlesArray = Object.keys(articleState).map(objectId => articleState[objectId])
       const filtered = articlesArray.filter(article => article.id !== payload.id)
-      var newObj = filtered.reduce(function(acc, cur) {
-        acc[cur.id] = cur
-        return acc
-      }, {})
+      var newObj = arrToMap(filtered)
       return newObj
 
     case ADD_COMMENT:
@@ -28,6 +26,8 @@ export default function(articleState = articleList, action) {
           comments: (article.comments || []).concat(payload.id),
         },
       }
+    case LOAD_ALL_ARTICLES:
+      return arrToMap(response)
     default:
       return articleState
   }

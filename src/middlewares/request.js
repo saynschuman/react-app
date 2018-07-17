@@ -1,12 +1,11 @@
-import axios from 'axios'
-
 export default store => next => action => {
-  axios.get('api/article')
-    .then(function (response) {
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  next(action)
+  const { callAPI } = action
+  if (!callAPI) return next(action)
+
+  setTimeout(() => {
+    fetch(callAPI)
+      .then(res => res.json())
+      .then(response => next({ ...action, response }))
+  }, 1000)
+
 }

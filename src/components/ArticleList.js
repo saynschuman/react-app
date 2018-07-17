@@ -3,10 +3,15 @@ import Article from './Article'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { filtratedArticlesSelector } from '../selectors'
+import { loadAllArticles } from '../actions'
 
 class ArticleList extends Component {
   state = {
     openArtId: null,
+  }
+
+  componentDidMount() {
+    this.props.loadAllArticles()
   }
 
   render() {
@@ -36,8 +41,11 @@ ArticleList.propTypes = {
   articles: PropTypes.array,
 }
 
-export default connect(state => {
-  return {
-    articles: filtratedArticlesSelector(state),
-  }
-}, null, null, {pure:false})(ArticleList)
+export default connect(
+  state => {
+    return {
+      articles: filtratedArticlesSelector(state),
+    }
+  },
+  { loadAllArticles },
+)(ArticleList)

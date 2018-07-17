@@ -1,4 +1,12 @@
-import { DECREMENT, DELETE_ARTICLE, INCREMENT, SAVE_DAYS, SELECT_TO_STATE, ADD_COMMENT } from '../constants'
+import {
+  DECREMENT,
+  DELETE_ARTICLE,
+  INCREMENT,
+  SAVE_DAYS,
+  SELECT_TO_STATE,
+  ADD_COMMENT,
+  LOAD_ALL_ARTICLES
+} from '../constants'
 
 export function deleteArticle(id) {
   return {
@@ -43,5 +51,12 @@ export function addComment(comment) {
   return {
     type: ADD_COMMENT,
     payload: { comment }
+  }
+}
+
+export function loadAllArticles(comment) {
+  return {
+    type: LOAD_ALL_ARTICLES,
+    callAPI: '/api/article'
   }
 }

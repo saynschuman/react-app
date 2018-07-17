@@ -1,4 +1,5 @@
 export const DELETE_ARTICLE = 'DELETE_ARTICLE'
+export const LOAD_ALL_ARTICLES = 'LOAD_ALL_ARTICLES'
 export const SAVE_DAYS = 'SAVE_DAYS'
 export const SELECT_TO_STATE = 'SELECT_TO_STATE'
 export const INCREMENT = 'INCREMENT'
