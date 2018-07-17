@@ -3,10 +3,11 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import rootReducer from '../reducer'
 // import logger from 'redux-logger'
 import commentIdGenerator from '../middlewares/commentIdGenerator'
+import server from '../middlewares/request'
 
 
 const configureStore = initialState => {
-  const enhancer = composeWithDevTools(applyMiddleware(commentIdGenerator))
+  const enhancer = composeWithDevTools(applyMiddleware(commentIdGenerator, server))
   const store = createStore(rootReducer, initialState, enhancer)
 
   if (module.hot) {

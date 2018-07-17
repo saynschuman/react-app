@@ -2,7 +2,9 @@
   "name": "first-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap-daterangepicker": "^3.0.3",
     "immutable": "^3.8.2",
     "jquery": "^3.3.1",

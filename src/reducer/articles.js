@@ -1,7 +1,9 @@
 import { ADD_COMMENT, DELETE_ARTICLE } from '../constants'
 import { normalizedData } from '../data/dataGenerator'
+// import {Map} from 'immutable'
 
 const articleList = normalizedData.entities.articles
+// const articleList = new Map({})
 
 export default function(articleState = articleList, action) {
   const { type, payload } = action

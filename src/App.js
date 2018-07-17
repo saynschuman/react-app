@@ -7,7 +7,8 @@ import { selectToState } from './actions'
 import FilterSelect from './components/FilterSelect'
 import { hot } from 'react-hot-loader'
 import Counter from './components/counter'
-import {reduce} from './components/test/reduce'
+// import {reduce} from './components/test/reduce'
+// import {immutables} from './components/test/immutable'
 // import { postData } from './postData'
 // import { normalize, schema } from 'normalizr';
 //
@@ -30,7 +31,7 @@ class App extends Component {
         />
         <DayPick />
         <ArticleList />
-        {reduce()}
+        {/*{immutables()}*/}
       </div>
     )
   }
