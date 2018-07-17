@@ -8,7 +8,14 @@ export default function(articleState = articleList, action) {
 
   switch (type) {
     case DELETE_ARTICLE:
-      return articleState.filter(article => article.id !== payload.id)
+      const articlesArray = Object.keys(articleState).map(objectId => articleState[objectId])
+      const filtered = articlesArray.filter(article => article.id !== payload.id)
+      var newObj = filtered.reduce(function(acc, cur) {
+        acc[cur.id] = cur
+        return acc
+      }, {})
+      return newObj
+
     case ADD_COMMENT:
       const article = articleState[payload.comment.articleId]
 
