@@ -54,7 +54,7 @@ export function addComment(comment) {
   }
 }
 
-export function loadAllArticles(comment) {
+export function loadAllArticles() {
   return {
     type: LOAD_ALL_ARTICLES,
     callAPI: '/api/article'

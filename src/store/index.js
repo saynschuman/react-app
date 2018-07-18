@@ -5,19 +5,28 @@ import rootReducer from '../reducer'
 import commentIdGenerator from '../middlewares/commentIdGenerator'
 import server from '../middlewares/request'
 
+//
+// const configureStore = initialState => {
+//   const enhancer = composeWithDevTools(applyMiddleware(commentIdGenerator, server))
+//   const store = createStore(rootReducer, initialState, enhancer)
+//
+//   if (module.hot) {
+//     module.hot.accept('../reducer', () => {
+//       const nextRootReducer = require('../reducer').default
+//       store.replaceReducer(nextRootReducer)
+//     })
+//   }
+//
+//   return store
+// }
 
-const configureStore = initialState => {
-  const enhancer = composeWithDevTools(applyMiddleware(commentIdGenerator, server))
-  const store = createStore(rootReducer, initialState, enhancer)
+// export default configureStore
 
-  if (module.hot) {
-    module.hot.accept('../reducer', () => {
-      const nextRootReducer = require('../reducer').default
-      store.replaceReducer(nextRootReducer)
-    })
-  }
+const enhancer = applyMiddleware(commentIdGenerator, server)
 
-  return store
-}
+const store = createStore(rootReducer, {}, enhancer)
 
-export default configureStore
+//dev only
+window.store = store
+
+export default store

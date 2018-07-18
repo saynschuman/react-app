@@ -1,8 +1,9 @@
 import React from 'react'
 import Select from 'react-select'
+import {mapToArr} from '../helpers/index'
 
 const FilterSelect = ({ articles, value, selectToState }) => {
-  const articlesArr = Object.keys(articles).map(objectId => articles[objectId])
+  const articlesArr = mapToArr(articles)
   const options = articlesArr.map(article => ({
     label: article.author,
     value: article.id,

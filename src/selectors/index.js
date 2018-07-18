@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect'
+import {mapToArr} from '../helpers/index'
 
 const filtersGetter = state => state.filter
 const articlesGetter = state => state.articles
@@ -11,7 +12,7 @@ export const filtratedArticlesSelector = createSelector(
   (articles, filter) => {
     const { selected, from, to } = filter
 
-    const newArticles = Object.keys(articles).map(objectId => articles[objectId])
+    const newArticles = mapToArr(articles)
 
     return newArticles.filter(article => {
       const published = Date.parse(article.date)

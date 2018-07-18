@@ -5,7 +5,7 @@ import {Provider} from 'react-redux'
 
 function Root() {
     return (
-        <Provider store = {store()}>
+        <Provider store = {store}>
             <App/>
         </Provider>
     )
