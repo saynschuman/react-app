@@ -5,10 +5,10 @@ export default store => next => action => {
   if (!callAPI) return next(action)
 
   next({
-    ...rest, type: type + START
+    ...rest, type: type + START // сразу ушло в редюсер
   })
 
-  setTimeout(() => {
+  setTimeout(() => { // ушло в редюсер спустя секунду
     fetch(callAPI)
       .then(res => res.json())
       .then(response => next({ ...rest, type: type + SUCCESS, response }))

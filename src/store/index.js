@@ -4,6 +4,7 @@ import rootReducer from '../reducer'
 // import logger from 'redux-logger'
 import commentIdGenerator from '../middlewares/commentIdGenerator'
 import server from '../middlewares/request'
+import thunk from 'redux-thunk'
 
 //
 // const configureStore = initialState => {
@@ -12,7 +13,7 @@ import server from '../middlewares/request'
 //
 //   if (module.hot) {
 //     module.hot.accept('../reducer', () => {
-//       const nextRootReducer = require('../reducer').default
+//       const nextRootReducer = require('../reducer').defau lt
 //       store.replaceReducer(nextRootReducer)
 //     })
 //   }
@@ -22,7 +23,7 @@ import server from '../middlewares/request'
 
 // export default configureStore
 
-const enhancer = composeWithDevTools(applyMiddleware(commentIdGenerator, server))
+const enhancer = composeWithDevTools(applyMiddleware(thunk, commentIdGenerator, server))
 
 const store = createStore(rootReducer, {}, enhancer)
 

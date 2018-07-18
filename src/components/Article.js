@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import propTypes from 'prop-types'
-import { deleteArticle } from '../actions'
+import { deleteArticle, loadArticle } from '../actions'
 import CommentList from './CommentList'
+import Loader from '../components/Loader'
 
 class Article extends Component {
+  componentWillReceiveProps({ isOpen, loadArticle, article }) {
+    if (isOpen && !article.text && !article.loading) {
+      loadArticle(article.id)
+    }
+  }
   render() {
     const { article } = this.props
 
@@ -39,6 +45,7 @@ class Article extends Component {
   getBody() {
     if (!this.props.isOpen) return null
     const { article } = this.props
+    if (article.loading) return <Loader />
     return (
       <section>
         <br />
@@ -58,5 +65,5 @@ Article.propTypes = {
 
 export default connect(
   null,
-  { deleteArticle },
+  { deleteArticle, loadArticle },
 )(Article)
