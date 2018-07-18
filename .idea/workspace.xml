@@ -1,57 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c5538b9-121b-464b-9b72-5de5fa460471" name="Default" comment="immutable figured">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/articles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/articles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Article.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Article.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ArticleList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ArticleList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Circle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Circle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CommentForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CommentForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CommentForm/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CommentForm/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CommentForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CommentForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CommentList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CommentList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DayPick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DayPick.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FilterSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FilterSelect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Root.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Root.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/calendar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/commentForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentForm.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/counter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/test/immutable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/test/immutable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/test/promise.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/test/promise.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/test/reduce.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/test/reduce.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/dataGenerator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/dataGenerator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decorators/Accordeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/decorators/Accordeon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decorators/Toggle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/decorators/Toggle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middlewares/commentIdGenerator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlewares/commentIdGenerator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middlewares/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlewares/logger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middlewares/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlewares/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/normalizedArticles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/normalizedArticles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/postData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/postData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducer/articles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducer/articles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducer/comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducer/comments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducer/counter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducer/counter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducer/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducer/filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducer/userComments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducer/userComments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/registerServiceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/registerServiceWorker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selectors/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selectors/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="7c5538b9-121b-464b-9b72-5de5fa460471" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -109,7 +59,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="articles.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="articles.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reducer/articles.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
@@ -117,6 +67,24 @@
               <folding>
                 <element signature="e#166#207#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mock.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/simple_api/api/mock.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="376">
+              <caret line="88" column="56" selection-start-line="88" selection-start-column="56" selection-end-line="88" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/simple_api/api/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="419">
+              <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -595,11 +563,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531904980825</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="open article">
+      <created>1531947798985</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1531947798985</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195492000" />
+    <option name="totallyTimeSpent" value="195766000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -713,7 +688,8 @@
     <MESSAGE value="simple proxy" />
     <MESSAGE value="simple API call" />
     <MESSAGE value="immutable figured" />
-    <option name="LAST_COMMIT_MESSAGE" value="immutable figured" />
+    <MESSAGE value="open article" />
+    <option name="LAST_COMMIT_MESSAGE" value="open article" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -853,6 +829,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -997,20 +976,6 @@
     <entry file="file://$PROJECT_DIR$/src/components/Loader.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/simple_api/api/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simple_api/api/mock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="87" column="42" lean-forward="true" selection-start-line="87" selection-start-column="42" selection-end-line="87" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
@@ -1070,6 +1035,20 @@
           <folding>
             <element signature="e#166#207#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple_api/api/mock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="88" column="56" selection-start-line="88" selection-start-column="56" selection-end-line="88" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple_api/api/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
         </state>
       </provider>
     </entry>
