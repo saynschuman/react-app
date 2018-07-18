@@ -5,7 +5,7 @@ import {mapToArr} from '../helpers/index'
 const FilterSelect = ({ articles, value, selectToState }) => {
   const articlesArr = mapToArr(articles)
   const options = articlesArr.map(article => ({
-    label: article.author,
+    label: article.title,
     value: article.id,
   }))
   function handleChange(selected) {

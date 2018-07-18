@@ -1,7 +1,7 @@
 import { ADD_COMMENT, DELETE_ARTICLE, LOAD_ALL_ARTICLES } from '../constants'
 // import { normalizedData } from '../data/dataGenerator'
-import {arrToMap, mapToArr} from '../helpers/index'
-import {Map, Record} from 'immutable'
+import {arrToMap} from '../helpers/index'
+import {OrderedMap, Record} from 'immutable'
 
 const ArticleRecord = Record({
   text: undefined,
@@ -10,10 +10,13 @@ const ArticleRecord = Record({
   comments: []
 })
 
-// const articleList = normalizedData.entities.articles
-// const articleList = new Map({})
+const ReducerState = new Record({
+  loading: false,
+  loaded: false,
+  entities: new OrderedMap({})
+})
 
-const defaultState = new Map({})
+const defaultState = new ReducerState()
 
 export default function(articleState = defaultState, action) {
   const { type, payload, response } = action
@@ -23,10 +26,10 @@ export default function(articleState = defaultState, action) {
       // const articlesArray  = mapToArr(articleState)
       // const filtered = articlesArray.filter(article => article.id !== payload.id)
       // var newObj = arrToMap(filtered)
-      return articleState.delete(payload.id)
+      return articleState.deleteIn(['entities', payload.id])
 
     case ADD_COMMENT:
-      // return articleState.updateIn([payload.articleId, 'comments'], comments => comments.concat(payload.id))
+       // return articleState.updateIn('entities', [payload.articleId, 'comments'], comments => comments.concat(payload.id))
 
       const article = articleState[payload.comment.articleId]
 
@@ -39,7 +42,7 @@ export default function(articleState = defaultState, action) {
         },
       }
     case LOAD_ALL_ARTICLES:
-      return arrToMap(response, ArticleRecord)
+      return articleState.set('entities', arrToMap(response, ArticleRecord))
     default:
       return articleState
   }

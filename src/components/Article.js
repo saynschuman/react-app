@@ -55,7 +55,6 @@ class Article extends Component {
 
 Article.propTypes = {
   article: propTypes.shape({
-    author: propTypes.string.isRequired,
     title: propTypes.string.isRequired,
   }).isRequired,
 }

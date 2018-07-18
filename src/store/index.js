@@ -22,7 +22,7 @@ import server from '../middlewares/request'
 
 // export default configureStore
 
-const enhancer = applyMiddleware(commentIdGenerator, server)
+const enhancer = composeWithDevTools(applyMiddleware(commentIdGenerator, server))
 
 const store = createStore(rootReducer, {}, enhancer)
 

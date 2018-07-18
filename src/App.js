@@ -42,7 +42,7 @@ class App extends Component {
 
 function mapSTP(state) {
   return {
-    articles: state.articles,
+    articles: state.articles.entities,
     selected: state.filter.selected,
   }
 }
