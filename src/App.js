@@ -7,16 +7,6 @@ import { selectToState } from './actions'
 import FilterSelect from './components/FilterSelect'
 import { hot } from 'react-hot-loader'
 import Counter from './components/counter'
-// import {reduce} from './components/test/reduce'
-// import {immutables} from './components/test/immutable'
-// import { postData } from './postData'
-// import { normalize, schema } from 'normalizr';
-//
-// window.normalize = normalize
-// window.schema = schema
-// window.postData = postData
-
-
 
 class App extends Component {
   render() {
@@ -35,10 +25,7 @@ class App extends Component {
       </div>
     )
   }
-
 }
-
-
 
 function mapSTP(state) {
   return {

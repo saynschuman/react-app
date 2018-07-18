@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { filtratedArticlesSelector } from '../selectors'
 import { loadAllArticles } from '../actions'
+import Loader from '../components/Loader'
 
 class ArticleList extends Component {
   state = {
@@ -11,11 +12,14 @@ class ArticleList extends Component {
   }
 
   componentDidMount() {
-    this.props.loadAllArticles()
+    const {loaded, loading, loadAllArticles} = this.props
+    if (!loaded || !loading) loadAllArticles()
+
   }
 
   render() {
-    const { articles } = this.props
+    const { articles, loading } = this.props
+    if(loading) return <Loader />
 
     const articleElements = articles.map(article => (
       <li key={article.id}>
@@ -45,6 +49,8 @@ export default connect(
   state => {
     return {
       articles: filtratedArticlesSelector(state),
+      loading: state.articles.loading,
+      loaded: state.articles.loaded
     }
   },
   { loadAllArticles },

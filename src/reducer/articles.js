@@ -1,4 +1,4 @@
-import { ADD_COMMENT, DELETE_ARTICLE, LOAD_ALL_ARTICLES } from '../constants'
+import { ADD_COMMENT, DELETE_ARTICLE, LOAD_ALL_ARTICLES, SUCCESS, START } from '../constants'
 // import { normalizedData } from '../data/dataGenerator'
 import {arrToMap} from '../helpers/index'
 import {OrderedMap, Record} from 'immutable'
@@ -41,8 +41,15 @@ export default function(articleState = defaultState, action) {
           comments: (article.comments || []).concat(payload.id),
         },
       }
-    case LOAD_ALL_ARTICLES:
-      return articleState.set('entities', arrToMap(response, ArticleRecord))
+
+    case LOAD_ALL_ARTICLES + START:
+      return articleState.set('loading', true)
+
+    case LOAD_ALL_ARTICLES + SUCCESS:
+      return articleState
+        .set('entities', arrToMap(response, ArticleRecord))
+        .set('loading', false)
+        .set('loaded', true)
     default:
       return articleState
   }

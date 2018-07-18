@@ -5,3 +5,7 @@ export const SELECT_TO_STATE = 'SELECT_TO_STATE'
 export const INCREMENT = 'INCREMENT'
 export const DECREMENT = 'DECREMENT'
 export const ADD_COMMENT = 'ADD_COMMENT'
+export const START = '_START'
+export const SUCCESS = '_SUCCESS'
+export const FAIL = '_FAIL'
+
