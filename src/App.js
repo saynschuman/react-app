@@ -1,42 +1,47 @@
 import React, { Component } from 'react'
 import './App.css'
-import ArticleList from './components/ArticleList'
-import { connect } from 'react-redux'
+import Articles from './components/routes/Articles'
+// import { connect } from 'react-redux'
 import DayPick from './components/DayPick'
-import { selectToState } from './actions'
-import FilterSelect from './components/FilterSelect'
-import { hot } from 'react-hot-loader'
+// import { selectToState } from './actions'
+// import FilterSelect from './components/FilterSelect'
+// import { hot } from 'react-hot-loader'
 import Counter from './components/counter'
+import { HashRouter as Router, Route, Link } from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Counter />
-        <br />
-        <FilterSelect
-          value={this.props.selected}
-          selectToState={this.props.selectToState}
-          articles={this.props.articles}
-        />
-        <DayPick />
-        <ArticleList />
-        {/*{immutables()}*/}
-      </div>
+      <Router>
+        <div>
+          <div>
+            <h2>Menu</h2>
+            <div>
+              <Link to="/">Home</Link>
+            </div>
+            <div>
+              <Link to="/counter">Counter</Link>
+            </div>
+            <div>
+              <Link to="/daypick">Daypick</Link>
+            </div>
+            <div>
+              <Link to="/articles">Articles</Link>
+            </div>
+          </div>
+          <Route path="/counter" component={Counter} />
+          <Route path="/daypick" component={DayPick} />
+          <Route path="/articles" component={Articles} />
+          <br />
+          {/*<FilterSelect*/}
+          {/*value={this.props.selected}*/}
+          {/*selectToState={this.props.selectToState}*/}
+          {/*articles={this.props.articles}*/}
+          {/*/>*/}
+        </div>
+      </Router>
     )
   }
 }
 
-function mapSTP(state) {
-  return {
-    articles: state.articles.entities,
-    selected: state.filter.selected,
-  }
-}
-
-export default hot(module)(
-  connect(
-    mapSTP,
-    { selectToState },
-  )(App),
-)
+export default App

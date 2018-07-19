@@ -6,23 +6,20 @@ import CommentList from './CommentList'
 import Loader from '../components/Loader'
 
 class Article extends Component {
-  componentWillReceiveProps({ isOpen, loadArticle, article }) {
-    if (isOpen && !article.text && !article.loading) {
-      loadArticle(article.id)
+  componentDidMount() {
+    const { id, loadArticle, article } = this.props
+    if (!article || (!article.text && !article.loading)) {
+      loadArticle(id)
     }
   }
   render() {
     const { article } = this.props
+    if (!article) return null
 
     return (
       <div>
         <h3>{article.title}</h3>
         <p>{article.date}</p>
-        {
-          <button onClick={this.props.getArtId(article.id)}>
-            {this.props.isOpen ? 'close' : 'open'}
-          </button>
-        }
         {<button onClick={this.handleDelete}>delete</button>}
         <br />
         {this.getBody()}
@@ -59,12 +56,18 @@ class Article extends Component {
 }
 
 Article.propTypes = {
+  id: propTypes.string,
+  // from connect
   article: propTypes.shape({
-    title: propTypes.string.isRequired,
-  }).isRequired,
+    title: propTypes.string,
+  }),
 }
 
 export default connect(
-  null,
+  (state, props) => {
+    return {
+      article: state.articles.entities.get(props.id),
+    }
+  },
   { deleteArticle, loadArticle },
 )(Article)

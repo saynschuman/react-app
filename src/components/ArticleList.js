@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import Article from './Article'
+// import Article from './Article'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { filtratedArticlesSelector } from '../selectors'
 import { loadAllArticles } from '../actions'
 import Loader from '../components/Loader'
+import { NavLink } from 'react-router-dom'
 
 class ArticleList extends Component {
   state = {
@@ -23,13 +24,14 @@ class ArticleList extends Component {
 
     const articleElements = articles.map(article => (
       <li key={article.id}>
-        <Article
-          isOpen={article.id === this.state.openArtId}
-          article={article}
-          getArtId={this.getArtId}
-          comments={article.comments}
-          fullCom={this.props.fullCom}
-        />
+        <NavLink to={`/articles/${article.id}`}>{article.title}</NavLink>
+        {/*<Article*/}
+          {/*isOpen={article.id === this.state.openArtId}*/}
+          {/*article={article}*/}
+          {/*getArtId={this.getArtId}*/}
+          {/*comments={article.comments}*/}
+          {/*fullCom={this.props.fullCom}*/}
+        {/*/>*/}
       </li>
     ))
     return <ul>{articleElements}</ul>
@@ -46,13 +48,17 @@ ArticleList.propTypes = {
   articles: PropTypes.array,
 }
 
+function mapSTP(state) {
+  return {
+
+    selected: state.filter.selected,
+    articles: filtratedArticlesSelector(state),
+    loading: state.articles.loading,
+    loaded: state.articles.loaded,
+  }
+}
+
 export default connect(
-  state => {
-    return {
-      articles: filtratedArticlesSelector(state),
-      loading: state.articles.loading,
-      loaded: state.articles.loaded,
-    }
-  },
+  mapSTP,
   { loadAllArticles },
 )(ArticleList)
