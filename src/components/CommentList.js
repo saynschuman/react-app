@@ -1,14 +1,22 @@
 import React, { Component } from 'react'
 import Comment from './Comment'
 import CommentForm from './CommentForm'
+import Loader from '../components/Loader'
+import { loadComments } from '../actions'
+import { connect } from 'react-redux'
+import store from '../store'
+import {mapToArr} from '../helpers'
 
 class CommentList extends Component {
   state = {
     IsOpenComment: false,
   }
 
-  render() {
+  componentDidMount() {
+    this.props.loadComments(this.props.id)
+  }
 
+  render() {
     return (
       <div>
         {this.getButton()}
@@ -17,18 +25,24 @@ class CommentList extends Component {
     )
   }
 
-
   getComments() {
-    const {comments} = this.props
     const { IsOpenComment } = this.state
+    const { id } = this.props
     const { isOpenArticle } = this.props
-    if(!isOpenArticle) return null
+    if (!isOpenArticle) return null
     if (!this.state.IsOpenComment) return null
+    // if (this.state.loadingComments) return <Loader />
+
+
     if (IsOpenComment)
       return (
         <div>
           <ul className="nop">
-            {comments.map(id => <li className="comments" key={id}><Comment id = {id}/></li>)}
+            {this.props.fullCom.map(comment => (
+              <li className="comments" key={comment.id}>
+                <Comment id={comment} />
+              </li>
+            ))}
           </ul>
           <CommentForm id={this.props.id} />
         </div>
@@ -36,35 +50,34 @@ class CommentList extends Component {
   }
 
   getButton() {
-
     const { isOpenArticle } = this.props
     const { IsOpenComment } = this.state
     if (isOpenArticle)
-
-
       return (
         <div>
           <button onClick={this.toggleOpenComment}>
             {IsOpenComment ? 'Закрыть комментарии' : 'Открыть комментарии'}
           </button>
-          <br/>
-          <br/>
+          <br />
+          <br />
         </div>
       )
   }
 
   toggleOpenComment = () => {
-    this.setState({
-      IsOpenComment: !this.state.IsOpenComment  ,
-    })
+      this.setState({
+        IsOpenComment: !this.state.IsOpenComment,
+      })
   }
-
 }
 
-// mapStateToProps = (state, props) => {
-//   return {
-//     comments: state.comments
-//   }
-// }
-
-export default CommentList
+export default connect(
+  (state, props) => {
+    console.log((state.comments.fullComments.toJS())[props.id])
+    return {
+      fullCom: (state.comments.fullComments.toJS())[props.id],
+      // fullCom: []
+    }
+  },
+  { loadComments },
+)(CommentList)

@@ -9,7 +9,8 @@ import {
   LOAD_ARTICLE,
   START,
   SUCCESS,
-  FAIL
+  FAIL,
+  LOAD_COMMENTS,
 } from '../constants'
 
 export function deleteArticle(id) {
@@ -54,42 +55,47 @@ export function decrement() {
 export function addComment(comment) {
   return {
     type: ADD_COMMENT,
-    payload: { comment }
+    payload: { comment },
   }
 }
 
 export function loadAllArticles() {
   return {
     type: LOAD_ALL_ARTICLES,
-    callAPI: '/api/article'
+    callAPI: '/api/article',
   }
 }
 
 export function loadArticle(id) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
       type: LOAD_ARTICLE + START,
-      payload: { id }
+      payload: { id },
     })
 
     setTimeout(() => {
       fetch(`/api/article/${id}`)
         .then(res => res.json())
-        .then(response => dispatch({
-          type: LOAD_ARTICLE + SUCCESS,
-          payload: {id, response}
-        }))
-        .catch(error => dispatch({
-          type: LOAD_ARTICLE + FAIL,
-          payload: {id, error}
-        }))
+        .then(response =>
+          dispatch({
+            type: LOAD_ARTICLE + SUCCESS,
+            payload: { id, response },
+          }),
+        )
+        .catch(error =>
+          dispatch({
+            type: LOAD_ARTICLE + FAIL,
+            payload: { id, error },
+          }),
+        )
     }, 500)
   }
 }
 
-// export function loadArticle(id) {
-//   return {
-//     type: LOAD_ARTICLE,
-//     callAPI: `/api/article/${id}`
-//   }
-// }
+export function loadComments(id) {
+  return {
+    type: LOAD_COMMENTS,
+    commentsAPI: `/api/comment?article=${id}`,
+    id: {id}
+  }
+}

@@ -1,10 +1,14 @@
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import rootReducer from '../reducer'
-// import logger from 'redux-logger'
+import logger from 'redux-logger'
 import commentIdGenerator from '../middlewares/commentIdGenerator'
 import server from '../middlewares/request'
 import thunk from 'redux-thunk'
+import loadComments from '../middlewares/loadComments'
+import axios from 'axios'
+
+window.axios = axios
 
 //
 // const configureStore = initialState => {
@@ -23,7 +27,7 @@ import thunk from 'redux-thunk'
 
 // export default configureStore
 
-const enhancer = composeWithDevTools(applyMiddleware(thunk, commentIdGenerator, server))
+const enhancer = composeWithDevTools(applyMiddleware(thunk, commentIdGenerator, server, loadComments, logger))
 
 const store = createStore(rootReducer, {}, enhancer)
 

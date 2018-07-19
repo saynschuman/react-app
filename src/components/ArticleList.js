@@ -28,6 +28,7 @@ class ArticleList extends Component {
           article={article}
           getArtId={this.getArtId}
           comments={article.comments}
+          fullCom={this.props.fullCom}
         />
       </li>
     ))
@@ -50,7 +51,7 @@ export default connect(
     return {
       articles: filtratedArticlesSelector(state),
       loading: state.articles.loading,
-      loaded: state.articles.loaded
+      loaded: state.articles.loaded,
     }
   },
   { loadAllArticles },

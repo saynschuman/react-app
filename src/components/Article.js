@@ -30,8 +30,9 @@ class Article extends Component {
         {
           <CommentList
             id={article.id}
-            comments={article.comments}
+            commentList={this.props.comments}
             isOpenArticle={this.props.isOpen}
+            fullCom={this.props.fullCom}
           />
         }
       </div>

@@ -16,7 +16,7 @@ class Comment extends Component {
 
     return (
         <span>
-          <b>{this.props.fullComments.user}</b> <br/> <i>{this.props.fullComments.text}</i>
+          <b>{this.props.id.user}</b> <br/> <i>{this.props.id.text}</i>
         </span>
 
     )
