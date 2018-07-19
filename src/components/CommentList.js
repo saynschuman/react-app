@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import Comment from './Comment'
 import CommentForm from './CommentForm'
-import Loader from '../components/Loader'
+// import Loader from '../components/Loader'
 import { loadComments } from '../actions'
 import { connect } from 'react-redux'
-import store from '../store'
-import {mapToArr} from '../helpers'
+// import store from '../store'
+// import { mapToArr } from '../helpers'
 
 class CommentList extends Component {
   state = {
@@ -13,6 +13,8 @@ class CommentList extends Component {
   }
 
   componentDidMount() {
+    const {loaded, loading} = this.props
+    if ((!loaded || !loading) || this.state.IsOpenComment)
     this.props.loadComments(this.props.id)
   }
 
@@ -27,12 +29,11 @@ class CommentList extends Component {
 
   getComments() {
     const { IsOpenComment } = this.state
-    const { id } = this.props
+    // const { id } = this.props
     const { isOpenArticle } = this.props
     if (!isOpenArticle) return null
     if (!this.state.IsOpenComment) return null
     // if (this.state.loadingComments) return <Loader />
-
 
     if (IsOpenComment)
       return (
@@ -65,18 +66,18 @@ class CommentList extends Component {
   }
 
   toggleOpenComment = () => {
-      this.setState({
-        IsOpenComment: !this.state.IsOpenComment,
-      })
+    this.setState({
+      IsOpenComment: !this.state.IsOpenComment,
+    })
   }
 }
 
 export default connect(
   (state, props) => {
-    console.log((state.comments.fullComments.toJS())[props.id])
     return {
-      fullCom: (state.comments.fullComments.toJS())[props.id],
-      // fullCom: []
+      fullCom: state.comments.fullComments.toJS()[props.id],
+      loading: state.comments.loading,
+      loaded: state.comments.loaded,
     }
   },
   { loadComments },
