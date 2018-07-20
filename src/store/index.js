@@ -7,6 +7,8 @@ import server from '../middlewares/request'
 import thunk from 'redux-thunk'
 import loadComments from '../middlewares/loadComments'
 import axios from 'axios'
+import { routerMiddleware } from 'react-router-redux'
+import history from '../history'
 
 window.axios = axios
 
@@ -27,7 +29,7 @@ window.axios = axios
 
 // export default configureStore
 
-const enhancer = composeWithDevTools(applyMiddleware(thunk, commentIdGenerator, server, loadComments))
+const enhancer = composeWithDevTools(applyMiddleware(thunk, routerMiddleware(history), commentIdGenerator, server, loadComments))
 
 const store = createStore(rootReducer, {}, enhancer)
 

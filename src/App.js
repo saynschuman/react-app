@@ -6,13 +6,32 @@ import DayPick from './components/DayPick'
 // import { selectToState } from './actions'
 // import FilterSelect from './components/FilterSelect'
 // import { hot } from 'react-hot-loader'
+import NewFoundPage from './components/NotFoundPage'
 import Counter from './components/counter'
-import { HashRouter as Router, Route, Link } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
+import { ConnectedRouter } from 'react-router-redux'
+import history from './history'
+import PropTypes from 'prop-types'
+import UserForm from './components/UserForm'
 
 class App extends Component {
+  static childContextTypes = {
+    user: PropTypes.string,
+  }
+
+  getChildContext() {
+    return {
+      user: this.state.username,
+    }
+  }
+
+  state = {
+    username: '',
+  }
+
   render() {
     return (
-      <Router>
+      <ConnectedRouter history={history}>
         <div>
           <div>
             <h2>Menu</h2>
@@ -29,9 +48,15 @@ class App extends Component {
               <Link to="/articles">Articles</Link>
             </div>
           </div>
-          <Route path="/counter" component={Counter} />
-          <Route path="/daypick" component={DayPick} />
-          <Route path="/articles" component={Articles} />
+          <br/>
+            <UserForm value={this.state.username} onChange={this.handleUserChange} />
+
+          <Switch>
+            <Route path="/counter" component={Counter} />
+            <Route path="/daypick" component={DayPick} />
+            <Route path="/articles" component={Articles} />
+            <Route path="*" component={NewFoundPage} />
+          </Switch>
           <br />
           {/*<FilterSelect*/}
           {/*value={this.props.selected}*/}
@@ -39,9 +64,10 @@ class App extends Component {
           {/*articles={this.props.articles}*/}
           {/*/>*/}
         </div>
-      </Router>
+      </ConnectedRouter>
     )
   }
+  handleUserChange = username => this.setState({ username })
 }
 
 export default App

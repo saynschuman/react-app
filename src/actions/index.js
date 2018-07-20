@@ -13,6 +13,8 @@ import {
   LOAD_COMMENTS,
 } from '../constants'
 
+import {replace} from 'react-router-redux'
+
 export function deleteArticle(id) {
   return {
     type: DELETE_ARTICLE,
@@ -75,7 +77,12 @@ export function loadArticle(id) {
 
     setTimeout(() => {
       fetch(`/api/article/${id}`)
-        .then(res => res.json())
+        .then(res => {
+          if(res.status >= 404) {
+            dispatch(replace('/error'))
+          }
+          return res.json()
+        })
         .then(response =>
           dispatch({
             type: LOAD_ARTICLE + SUCCESS,
@@ -87,6 +94,7 @@ export function loadArticle(id) {
             type: LOAD_ARTICLE + FAIL,
             payload: { id, error },
           }),
+
         )
     }, 500)
   }

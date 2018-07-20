@@ -4,8 +4,13 @@ import propTypes from 'prop-types'
 import { deleteArticle, loadArticle } from '../actions'
 import CommentList from './CommentList'
 import Loader from '../components/Loader'
+import PropTypes from 'prop-types'
 
 class Article extends Component {
+  static contextTypes = {
+    user: PropTypes.string,
+  }
+
   componentDidMount() {
     const { id, loadArticle, article } = this.props
     if (!article || (!article.text && !article.loading)) {
@@ -23,6 +28,8 @@ class Article extends Component {
         {<button onClick={this.handleDelete}>delete</button>}
         <br />
         {this.getBody()}
+        User: {this.context.user}
+        <br/> <br/>
 
         {
           <CommentList
@@ -69,5 +76,5 @@ export default connect(
       article: state.articles.entities.get(props.id),
     }
   },
-  { deleteArticle, loadArticle },
+  { deleteArticle, loadArticle }, null, {pure: false}
 )(Article)
